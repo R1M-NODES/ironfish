@@ -28,8 +28,8 @@ services:
    - $HOME/.ironfish:/root/.ironfish
 EOF
 
-source $HOME/.profile
 docker compose pull && docker compose up -d
+source $HOME/.profile
 
 printGreen "Node installed"
 printGreen "Create a new account with name wallet for sending and receiving coins: ironfish wallet:create myname"
