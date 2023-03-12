@@ -11,10 +11,7 @@ printGreen "Install and running node"
 echo "alias ironfish='docker exec ironfish ./bin/run'" >> $HOME/.bashrc
 source $HOME/.bashrc
 
-WORKSPACE=$HOME/ironfish
-mkdir $WORKSPACE && chmod 755 $WORKSPACE
-
-sudo tee <<EOF >/dev/null $WORKSPACE/docker-compose.yaml
+sudo tee <<EOF >/dev/null $HOME/docker-compose.yaml
 version: "3.3"
 services:
  ironfish:
@@ -31,7 +28,7 @@ services:
    - $HOME/.ironfish:/root/.ironfish
 EOF
 
-cd $WORKSPACE && docker compose pull && docker compose up -d
+docker compose pull && docker compose up -d
 
 printGreen "Node installed"
 printGreen "Create a new account with name wallet for sending and receiving coins: ironfish wallet:create myname"
