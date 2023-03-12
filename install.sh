@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/common.sh)
 
 printLogo
@@ -30,7 +32,7 @@ EOF
 docker-compose pull && docker-compose up -d
 
 printGreen "Node installed"
-printGreen -e "Create a new account with name wallet for sending and receiving coins: ironfish wallet:create myname"
-printGreen -e "Export an account to a mnemonic 24 word phrase: ironfish wallet:export myname --mnemonic --language=English"
-printGreen -e "Export an account: ironfish wallet:export myname"
-printGreen -e "Display your account address: ironfish wallet:address myname"
+printGreen "Create a new account with name wallet for sending and receiving coins: ironfish wallet:create myname"
+printGreen "Export an account to a mnemonic 24 word phrase: ironfish wallet:export myname --mnemonic --language=English"
+printGreen "Export an account: ironfish wallet:export myname"
+printGreen "Display your account address: ironfish wallet:address myname"
