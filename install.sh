@@ -31,7 +31,7 @@ services:
    - $HOME/.ironfish:/root/.ironfish
 EOF
 
-source $HOME/.bashrc
+source $HOME/.bashrc $HOME/.profile
 cd $WORKSPACE && docker compose pull && docker compose up -d
 
 printGreen "Node installed"
