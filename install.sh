@@ -8,8 +8,8 @@ printGreen "Install docker and docker compose"
 bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/docker-install.sh)
 
 printGreen "Install and running node"
-echo "alias ironfish='docker exec ironfish ./bin/run'" >> $HOME/.profile
-source $HOME/.profile
+echo "alias ironfish='docker exec ironfish ./bin/run'" >> $HOME/.bashrc
+source $HOME/.bashrc
 
 sudo tee <<EOF >/dev/null $HOME/docker-compose.yaml
 version: "3.3"
@@ -29,7 +29,6 @@ services:
 EOF
 
 docker compose pull && docker compose up -d
-source $HOME/.profile
 
 printGreen "Node installed"
 printGreen "Create a new account with name wallet for sending and receiving coins: ironfish wallet:create myname"
