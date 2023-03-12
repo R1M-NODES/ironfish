@@ -11,7 +11,7 @@ printGreen "Install and running node"
 echo "alias ironfish='docker exec ironfish ./bin/run'" >> $HOME/.bashrc
 source $HOME/.bashrc
 
-WORKSPACE=$HOME/ironfish
+WORKSPACE=$HOME/iron_fish
 mkdir $WORKSPACE && chmod 755 $WORKSPACE
 
 sudo tee <<EOF >/dev/null $WORKSPACE/docker-compose.yaml
@@ -31,7 +31,7 @@ services:
    - $HOME/.ironfish:/root/.ironfish
 EOF
 
-source $HOME/.bashrc $HOME/.profile
+source $HOME/.bashrc
 cd $WORKSPACE && docker compose pull && docker compose up -d
 
 printGreen "Node installed"
