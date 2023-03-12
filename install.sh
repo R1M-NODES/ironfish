@@ -7,12 +7,10 @@ printLogo
 printGreen "Install docker and docker compose"
 bash <(curl -s https://raw.githubusercontent.com/R1M-NODES/utils/master/docker-install.sh)
 
-sleep 1
 printGreen "Install and running node"
 echo "alias ironfish='docker exec ironfish ./bin/run'" >> $HOME/.profile
 source $HOME/.profile
 
-sleep 1
 sudo tee <<EOF >/dev/null $HOME/docker-compose.yaml
 version: "3.3"
 services:
@@ -30,6 +28,7 @@ services:
    - $HOME/.ironfish:/root/.ironfish
 EOF
 
+source $HOME/.profile
 docker compose pull && docker compose up -d
 
 printGreen "Node installed"
